@@ -7,4 +7,11 @@ coming soon.
 
 ### Basic Uses
 
-`con = pyipfs.connection()`
+import module : `from pyipfs import ipfs`
+stablis connection : `con = ipfs.connection()`
+add files : ``
+
+
+
+### Support 
+[our youtube page](https://youtube.com/codingbeast)
