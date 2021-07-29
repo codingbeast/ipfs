@@ -9,7 +9,7 @@ coming soon.
 
 import module : `from pyipfs import ipfs`  
 stablis connection : `con = ipfs.connection()`  
-add files : ``  
+add files : `con.add_files(your file path)`  
 
 
 
