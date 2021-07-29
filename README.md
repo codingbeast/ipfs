@@ -7,4 +7,4 @@ coming soon.
 
 ### Basic Uses
 
-con = pyipfs.connection()
+`con = pyipfs.connection()`
