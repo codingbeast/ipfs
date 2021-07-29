@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-local = True
+local = False
 if local:
     from Errors import IPFSConnectionError
     from Constants import ADDFILE_ENDPINT, DOWNLOAD_PATH
