@@ -1,5 +1,5 @@
 import requests
-from Error import IPFSConnectionError
+from Errors import IPFSConnectionError
 from requests import ReadTimeout, ConnectTimeout, HTTPError, Timeout, ConnectionError
 import sys
 class connection:
@@ -7,10 +7,11 @@ class connection:
         url = "http://{}:{}/api/v0/version/deps".format(server, port)
         try:
             response = requests.post(url)
+            print("connected.")
         except (ConnectTimeout, HTTPError, ReadTimeout, Timeout, ConnectionError):
             raise IPFSConnectionError()
             sys.exit(141)
         
         
         
-#obj = connection()
+obj = connection()
