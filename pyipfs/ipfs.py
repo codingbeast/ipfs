@@ -5,9 +5,11 @@ local = False
 if local:
     from Errors import IPFSConnectionError
     from Constants import ADDFILE_ENDPINT, DOWNLOAD_PATH
+    from add import BasicAdd
 else:
     from pyipfs.Errors import IPFSConnectionError
     from pyipfs.Constants import ADDFILE_ENDPINT, DOWNLOAD_PATH
+    from pyipfs.add import BasicAdd
 from requests import ReadTimeout, ConnectTimeout, HTTPError, Timeout, ConnectionError
 import sys
 
@@ -21,22 +23,11 @@ class connection:
             raise IPFSConnectionError()
             sys.exit(141)
             
-    def add_files(self,filename):
-        params = (
-            ('chunker', 'size-262144'),
-            ('quieter', 'true'),
-            ('pin', 'true'),
-        )
-        if os.path.exists(filename):
-            files = {
-                'file': (os.path.basename(filename), open(filename, 'rb')),
-            }
-            response = requests.post('http://127.0.0.1:5001/api/v0/add', params=params, files=files).json()
-            response['download'] = "{}{}".format(DOWNLOAD_PATH, response['Hash'])
-            return response
-        else:
-            return "FILE not found."
+    def add(self,filename):
+        obj = BasicAdd().addFile(filename)
+        return obj
         
         
 obj = connection()
-obj.add_files("/home/mahakal/Desktsop/serialized/ipfs/demo.jpg")
+n = obj.add("/home/mahakal/Desktop/serialized/demo.jpg")
+print(n)

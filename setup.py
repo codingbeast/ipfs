@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pyipfs',
-    version='0.1.0',    
+    version='0.1.1',    
     description='intract ipfs server with python',
     url='https://github.com/codingbeast/ipfs',
     author='Raaj',
